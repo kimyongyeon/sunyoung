@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "rsvp": "^3.5.0",
+    "rxjs": "^5.4.1"
+  },
+  "scripts": {
+    "start": "node crud.js"
+  },
+  "name": "sun",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "x8tech <x8tech@gmail.com>",
+  "license": "MIT"
+}
