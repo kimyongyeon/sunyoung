@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>Array</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" type="text/css" href="css/common.css" media="all" />
+	<script src="../js/jquery-1.8.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			var numbers = [];
+			numbers.push(1);
+			numbers.push(2);
+			numbers.push(3);
+			numbers.push(4);
+
+			var obj = new Object();
+			obj.name = 'k1';
+			numbers.push(obj);
+			//numbers[0] = obj;
+			//numbers[numbers.length+1] = obj;
+
+			var obj = new Object();
+			obj.name = 'k2';
+			numbers.push(obj);
+
+			numbers[0].name // k1
+			numbers[1].name // k2
+
+			//
+			var user = new function(){
+				this.name = '홍길동';
+				this.phone = '01099992222';
+				this.addr = '서울 강남';
+			};
+
+			numbers.push(user);
+			var user = new function(){
+				this.name = '홍길동2';
+				this.phone = '01099992222';
+				this.addr = '서울 강남';
+			};
+
+			var user = new function() {}
+			user.name = '홍길동3';
+			user.phone = '01012323';
+			user.addr = '서울 삼각지역';
+			numbers.push(user);
+
+			// 저장
+			function memberAdd() {
+
+			};
+
+			// 상세보기 
+			function memberRead() {
+			};
+
+			// 삭제
+			function memberRemove() {
+				//delete numbers[7].name
+			}
+			// 수정
+			function memberEdit() {
+			};
+
+			// 목록
+			function memberList() {
+				
+			};
+			memberList();
+
+			$('.result li:first-child').text(numbers[6].name);
+			console.log(numbers);
+			console.log(delete numbers[7].name);
+		});
+	</script>
+	</head>
+	<body>
+
+		<ul class="result">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+	</body>
+</html>
