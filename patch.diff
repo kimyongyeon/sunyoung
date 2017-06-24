@@ -1,252 +1,481 @@
-From d2d9a87ce3e8e9e264c712d1e44ec7dcfb27a350 Mon Sep 17 00:00:00 2001
+From f9e4d91a6de52e5f51408003289aadf5b0d59f6e Mon Sep 17 00:00:00 2001
 From: x8tech <x8tech@gmail.com>
-Date: Sat, 24 Jun 2017 15:38:30 +0900
-Subject: [PATCH] =?UTF-8?q?Revert=20"Rxjs=20=EB=AC=B8=EB=B2=95=20=EB=B0=8F?=
- =?UTF-8?q?=20=EA=B5=AC=ED=98=84=20=EC=B6=94=EA=B0=80"?=
+Date: Sat, 24 Jun 2017 15:52:33 +0900
+Subject: [PATCH] =?UTF-8?q?=EC=B5=9C=EC=A2=85=20=EC=86=8C=EC=8A=A4?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This reverts commit 5718ce7b79c10ec342ab1ce4620f2890c339c449.
 ---
- 20170624/index.js | 216 +++++++++++++++++++-----------------------------------
- 1 file changed, 75 insertions(+), 141 deletions(-)
+ 20170624/index.js | 198 ++++++++++++++++++++++++++++++++++++++++++
+ patch.diff        | 252 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 450 insertions(+)
+ create mode 100644 patch.diff
 
 diff --git a/20170624/index.js b/20170624/index.js
-index b93f297..af9d767 100644
+index af9d767..48d83f1 100644
 --- a/20170624/index.js
 +++ b/20170624/index.js
-@@ -1,80 +1,83 @@
- var Rx = require('../node_modules/rxjs');
--var RSVP = require('../node_modules/rsvp');
- var w3schools = "https://www.w3schools.com/js/js_array_methods.asp";
- module.exports = () => {
+@@ -130,3 +130,201 @@ function detailRead(arrayList, index) {
  
--    // console.log(new Date());
--    // console.log("study start");
--
--    // // var arrayList = [1,2,3,4,5];
--    // // // read
--    // // read(arrayList);
--    // // console.log("=======================");
--    // // // push
--    // // arrayList.push(10);
--    // // arrayList.push(11);
--    // // arrayList.push(12);
--    // // console.log("=======================");
--    // // // read
--    // // read(arrayList);
--    // // console.log("=======================");
--    // // // current read
--    // // currentRead(arrayList, 0);
-+    console.log(new Date());
-+    console.log("study start");
+ 
+ 
++var Rx = require('../node_modules/rxjs');
++var RSVP = require('../node_modules/rsvp');
++var w3schools = "https://www.w3schools.com/js/js_array_methods.asp";
++module.exports = () => {
 +
-+    // var arrayList = [1,2,3,4,5];
-+    // // read
-+    // read(arrayList);
-+    // console.log("=======================");
-+    // // push
-+    // arrayList.push(10);
-+    // arrayList.push(11);
-+    // arrayList.push(12);
-+    // console.log("=======================");
-+    // // read
-+    // read(arrayList);
-+    // console.log("=======================");
-+    // // current read
-+    // currentRead(arrayList, 0);
++    // console.log(new Date());
++    // console.log("study start");
++
++    // // var arrayList = [1,2,3,4,5];
++    // // // read
++    // // read(arrayList);
++    // // console.log("=======================");
++    // // // push
++    // // arrayList.push(10);
++    // // arrayList.push(11);
++    // // arrayList.push(12);
++    // // console.log("=======================");
++    // // // read
++    // // read(arrayList);
++    // // console.log("=======================");
++    // // // current read
++    // // currentRead(arrayList, 0);
 +    
-+    // 구조 배열 
-+    var memberList = [];
-+    // 3명의 인원 
-+    registerMember(memberList, {
-+        name: '홍길동',
-+        phone: '01012341234'
-+    });
-+    registerMember(memberList, {
-+        name: '홍길순',
-+        phone: '01023452345'
-+    });
-+    registerMember(memberList, {
-+        name: '홍길자',
-+        phone: '01045674567'
-+    });
++    // // 구조 배열 
++    // var memberList = [];
++    // // 3명의 인원 
++    // registerMember(memberList, {
++    //     name: '홍길동',
++    //     phone: '01012341234'
++    // });
++    // registerMember(memberList, {
++    //     name: '홍길순',
++    //     phone: '01023452345'
++    // });
++    // registerMember(memberList, {
++    //     name: '홍길자',
++    //     phone: '01045674567'
++    // });
 +
-+    var newMemberList = [];
-+    registerMember(newMemberList, {
-+        name: '김길동',
-+        phone: '01012341234'
-+    });
-+    registerMember(newMemberList, {
-+        name: '김길순',
-+        phone: '010-0000-1111'
-+    });
-+    registerMember(newMemberList, {
-+        name: '김길자',
-+        phone: '010-3333-4444'
-+    });
-+    console.log("string list", memberList.toString());
-+    console.log("string list", memberList.join("@"));
-+    console.log("string list", memberList.pop());
-+    console.log("string list", memberList.join("@"));
-+    console.log("string list", memberList.map(x=>x.name).join("@"));
++    // var newMemberList = [];
++    // registerMember(newMemberList, {
++    //     name: '김길동',
++    //     phone: '01012341234'
++    // });
++    // registerMember(newMemberList, {
++    //     name: '김길순',
++    //     phone: '010-0000-1111'
++    // });
++    // registerMember(newMemberList, {
++    //     name: '김길자',
++    //     phone: '010-3333-4444'
++    // });
++    // console.log("string list", memberList.toString());
++    // console.log("string list", memberList.join("@"));
++    // console.log("string list", memberList.pop());
++    // console.log("string list", memberList.join("@"));
++    // console.log("string list", memberList.map(x=>x.name).join("@"));
 +
-+    var subList = memberList.concat(newMemberList);
-+    listMember(subList);
++    // var subList = memberList.concat(newMemberList);
++    // listMember(subList);
 +
-+    // var subList2 = memberList.concat(newListMember, ["dumymember", "dumymembre2"]);
-+    // listMember(subList2);
++    // // var subList2 = memberList.concat(newListMember, ["dumymember", "dumymembre2"]);
++    // // listMember(subList2);
 +
-+    listMember(subList.sort());
-+    console.log("---");
-+    listMember(subList.reverse());
++    // listMember(subList.sort());
++    // console.log("---");
++    // listMember(subList.reverse());
 +
-+    var numberList = [40, 100, 1, 5, 25, 10];
-+    console.log(numberList);
-+    console.log(numberList.sort());
-+    console.log(numberList.sort((a, b) => {
-+        return b - a;
-+    }));
-+    console.log(numberList.sort((a, b) => {
-+        return a - b;
-+    }));
++    // var numberList = [40, 100, 1, 5, 25, 10];
++    // console.log(numberList);
++    // console.log(numberList.sort());
++    // console.log(numberList.sort((a, b) => {
++    //     return b - a;
++    // }));
++    // console.log(numberList.sort((a, b) => {
++    //     return a - b;
++    // }));
++}
 +
++function registerMember(list, item) {
++    console.log("registerMember item => ", item);
++    list.push(item);
++    //listMember(list);
++    newListMember(list);
++}
 +
++function listMember(list) {
++    for(var i=0; i<list.length; i++) {
++        console.log(list[i]);
++    }
++}
++
++function newListMember(list) {
++    list.forEach(function(element) {
++        console.log(element);
++    }, this);
++}
++
++function fnListMember(list) {
 +    
-     
--    // // 구조 배열 
--    // var memberList = [];
--    // // 3명의 인원 
--    // registerMember(memberList, {
--    //     name: '홍길동',
--    //     phone: '01012341234'
--    // });
--    // registerMember(memberList, {
--    //     name: '홍길순',
--    //     phone: '01023452345'
--    // });
--    // registerMember(memberList, {
--    //     name: '홍길자',
--    //     phone: '01045674567'
--    // });
--
--    // var newMemberList = [];
--    // registerMember(newMemberList, {
--    //     name: '김길동',
--    //     phone: '01012341234'
--    // });
--    // registerMember(newMemberList, {
--    //     name: '김길순',
--    //     phone: '010-0000-1111'
--    // });
--    // registerMember(newMemberList, {
--    //     name: '김길자',
--    //     phone: '010-3333-4444'
--    // });
--    // console.log("string list", memberList.toString());
--    // console.log("string list", memberList.join("@"));
--    // console.log("string list", memberList.pop());
--    // console.log("string list", memberList.join("@"));
--    // console.log("string list", memberList.map(x=>x.name).join("@"));
--
--    // var subList = memberList.concat(newMemberList);
--    // listMember(subList);
--
--    // // var subList2 = memberList.concat(newListMember, ["dumymember", "dumymembre2"]);
--    // // listMember(subList2);
--
--    // listMember(subList.sort());
--    // console.log("---");
--    // listMember(subList.reverse());
--
--    // var numberList = [40, 100, 1, 5, 25, 10];
--    // console.log(numberList);
--    // console.log(numberList.sort());
--    // console.log(numberList.sort((a, b) => {
--    //     return b - a;
--    // }));
--    // console.log(numberList.sort((a, b) => {
--    //     return a - b;
--    // }));
- }
- 
- function registerMember(list, item) {
-@@ -125,74 +128,5 @@ function detailRead(arrayList, index) {
-     return value;
- }
- 
--class RxJS {
--    constructor() {
--        // this.forkjoin();
--        this.oflist();
--        var fnobj = this.fnObj();
--        fnobj.subscribe(x => console.log(x));
--
--        var list = [1,2,3,4];
--        this.removeList(list, 1);
--        var newlist = this.addList(list, 5);
--        console.log(list);
--        newlist.subscribe(x => console.log(x));
--
--        this.editList(list,2,22);
--        console.log(list);
--
--    }
--    forkjoin() {
--        var source = Rx.Observable.forkJoin(
--            Rx.Observable.of(42),
--            Rx.Observable.range(0, 10),
--            Rx.Observable.from([1,2,3]),
--            RSVP.Promise.resolve(56)
--        );
--
--        var subscription = source.subscribe(
--            x => { console.log('Next: ' + x); },
--            err => { console.log('Error: ' + err); },
--            () => { console.log('Completed'); });
--    }
--    fnObj () {
--        return Rx.Observable.of('fnObj, hello');
--    }
--
--    addList (list, item) {
--        list = list.concat(item);
--        // list.push(item);
--        return Rx.Observable.of(list);
--    }
--
--    removeList(list, idx) {
--        list.splice(idx, 1);
--        return list;
--    }
--
--    editList (list, idx, item)  {
--        list[idx] = item;
--    }
--
--    oflist () {
--        //Rx.Observable.of('hello rxjs').subscribe(x => { console.log(x); });
--        var list = [];
--        list.push({
--            name: "k",
--            phone: "1234",
--            idx: 1234
--        });
--        Rx.Observable.of(list)
--            .filter(x => x[0].idx > 1142)
--            .map(x => x[0].name + "01")
--            .subscribe(x => { console.log(x); });
--        //Rx.Observable.of(1,2,3,4).subscribe(x =>{ console.log(x); });
--    }
--}
--
--var rxjs = new RxJS();
--
--
--
- 
- 
++}
++
++function readMember(list, name) {
++    var newItem = {};
++    for(var i=0; i<list.length; i++) {
++        if(list[i].name === name) {
++            newItem = item;
++        }
++    }
++    return newItem;
++}
++
++function removeMember(list, name) {
++    for(var i=0; i<list.length; i++) {
++        if(list[i].name === name) {
++            list.splice(i, 1);
++        }
++    }
++    return list;
++}
++
++function detailRead(arrayList, index) {
++    var value = arrayList[index];
++    console.log(value);
++    return value;
++}
++
++class RxJS {
++    constructor() {
++        // this.forkjoin();
++        this.oflist();
++        var fnobj = this.fnObj();
++        fnobj.subscribe(x => console.log(x));
++
++        var list = [1,2,3,4];
++        this.removeList(list, 1);
++        var newlist = this.addList(list, 5);
++        console.log(list);
++        newlist.subscribe(x => console.log(x));
++
++        this.editList(list,2,22);
++        console.log(list);
++
++    }
++    forkjoin() {
++        var source = Rx.Observable.forkJoin(
++            Rx.Observable.of(42),
++            Rx.Observable.range(0, 10),
++            Rx.Observable.from([1,2,3]),
++            RSVP.Promise.resolve(56)
++        );
++
++        var subscription = source.subscribe(
++            x => { console.log('Next: ' + x); },
++            err => { console.log('Error: ' + err); },
++            () => { console.log('Completed'); });
++    }
++    fnObj () {
++        return Rx.Observable.of('fnObj, hello');
++    }
++
++    addList (list, item) {
++        list = list.concat(item);
++        // list.push(item);
++        return Rx.Observable.of(list);
++    }
++
++    removeList(list, idx) {
++        list.splice(idx, 1);
++        return list;
++    }
++
++    editList (list, idx, item)  {
++        list[idx] = item;
++    }
++
++    oflist () {
++        //Rx.Observable.of('hello rxjs').subscribe(x => { console.log(x); });
++        var list = [];
++        list.push({
++            name: "k",
++            phone: "1234",
++            idx: 1234
++        });
++        Rx.Observable.of(list)
++            .filter(x => x[0].idx > 1142)
++            .map(x => x[0].name + "01")
++            .subscribe(x => { console.log(x); });
++        //Rx.Observable.of(1,2,3,4).subscribe(x =>{ console.log(x); });
++    }
++}
++
++var rxjs = new RxJS();
++
++
++
++
++
+diff --git a/patch.diff b/patch.diff
+new file mode 100644
+index 0000000..94919dd
+--- /dev/null
++++ b/patch.diff
+@@ -0,0 +1,252 @@
++From d2d9a87ce3e8e9e264c712d1e44ec7dcfb27a350 Mon Sep 17 00:00:00 2001
++From: x8tech <x8tech@gmail.com>
++Date: Sat, 24 Jun 2017 15:38:30 +0900
++Subject: [PATCH] =?UTF-8?q?Revert=20"Rxjs=20=EB=AC=B8=EB=B2=95=20=EB=B0=8F?=
++ =?UTF-8?q?=20=EA=B5=AC=ED=98=84=20=EC=B6=94=EA=B0=80"?=
++MIME-Version: 1.0
++Content-Type: text/plain; charset=UTF-8
++Content-Transfer-Encoding: 8bit
++
++This reverts commit 5718ce7b79c10ec342ab1ce4620f2890c339c449.
++---
++ 20170624/index.js | 216 +++++++++++++++++++-----------------------------------
++ 1 file changed, 75 insertions(+), 141 deletions(-)
++
++diff --git a/20170624/index.js b/20170624/index.js
++index b93f297..af9d767 100644
++--- a/20170624/index.js
+++++ b/20170624/index.js
++@@ -1,80 +1,83 @@
++ var Rx = require('../node_modules/rxjs');
++-var RSVP = require('../node_modules/rsvp');
++ var w3schools = "https://www.w3schools.com/js/js_array_methods.asp";
++ module.exports = () => {
++ 
++-    // console.log(new Date());
++-    // console.log("study start");
++-
++-    // // var arrayList = [1,2,3,4,5];
++-    // // // read
++-    // // read(arrayList);
++-    // // console.log("=======================");
++-    // // // push
++-    // // arrayList.push(10);
++-    // // arrayList.push(11);
++-    // // arrayList.push(12);
++-    // // console.log("=======================");
++-    // // // read
++-    // // read(arrayList);
++-    // // console.log("=======================");
++-    // // // current read
++-    // // currentRead(arrayList, 0);
+++    console.log(new Date());
+++    console.log("study start");
+++
+++    // var arrayList = [1,2,3,4,5];
+++    // // read
+++    // read(arrayList);
+++    // console.log("=======================");
+++    // // push
+++    // arrayList.push(10);
+++    // arrayList.push(11);
+++    // arrayList.push(12);
+++    // console.log("=======================");
+++    // // read
+++    // read(arrayList);
+++    // console.log("=======================");
+++    // // current read
+++    // currentRead(arrayList, 0);
+++    
+++    // 구조 배열 
+++    var memberList = [];
+++    // 3명의 인원 
+++    registerMember(memberList, {
+++        name: '홍길동',
+++        phone: '01012341234'
+++    });
+++    registerMember(memberList, {
+++        name: '홍길순',
+++        phone: '01023452345'
+++    });
+++    registerMember(memberList, {
+++        name: '홍길자',
+++        phone: '01045674567'
+++    });
+++
+++    var newMemberList = [];
+++    registerMember(newMemberList, {
+++        name: '김길동',
+++        phone: '01012341234'
+++    });
+++    registerMember(newMemberList, {
+++        name: '김길순',
+++        phone: '010-0000-1111'
+++    });
+++    registerMember(newMemberList, {
+++        name: '김길자',
+++        phone: '010-3333-4444'
+++    });
+++    console.log("string list", memberList.toString());
+++    console.log("string list", memberList.join("@"));
+++    console.log("string list", memberList.pop());
+++    console.log("string list", memberList.join("@"));
+++    console.log("string list", memberList.map(x=>x.name).join("@"));
+++
+++    var subList = memberList.concat(newMemberList);
+++    listMember(subList);
+++
+++    // var subList2 = memberList.concat(newListMember, ["dumymember", "dumymembre2"]);
+++    // listMember(subList2);
+++
+++    listMember(subList.sort());
+++    console.log("---");
+++    listMember(subList.reverse());
+++
+++    var numberList = [40, 100, 1, 5, 25, 10];
+++    console.log(numberList);
+++    console.log(numberList.sort());
+++    console.log(numberList.sort((a, b) => {
+++        return b - a;
+++    }));
+++    console.log(numberList.sort((a, b) => {
+++        return a - b;
+++    }));
+++
+++
+++    
++     
++-    // // 구조 배열 
++-    // var memberList = [];
++-    // // 3명의 인원 
++-    // registerMember(memberList, {
++-    //     name: '홍길동',
++-    //     phone: '01012341234'
++-    // });
++-    // registerMember(memberList, {
++-    //     name: '홍길순',
++-    //     phone: '01023452345'
++-    // });
++-    // registerMember(memberList, {
++-    //     name: '홍길자',
++-    //     phone: '01045674567'
++-    // });
++-
++-    // var newMemberList = [];
++-    // registerMember(newMemberList, {
++-    //     name: '김길동',
++-    //     phone: '01012341234'
++-    // });
++-    // registerMember(newMemberList, {
++-    //     name: '김길순',
++-    //     phone: '010-0000-1111'
++-    // });
++-    // registerMember(newMemberList, {
++-    //     name: '김길자',
++-    //     phone: '010-3333-4444'
++-    // });
++-    // console.log("string list", memberList.toString());
++-    // console.log("string list", memberList.join("@"));
++-    // console.log("string list", memberList.pop());
++-    // console.log("string list", memberList.join("@"));
++-    // console.log("string list", memberList.map(x=>x.name).join("@"));
++-
++-    // var subList = memberList.concat(newMemberList);
++-    // listMember(subList);
++-
++-    // // var subList2 = memberList.concat(newListMember, ["dumymember", "dumymembre2"]);
++-    // // listMember(subList2);
++-
++-    // listMember(subList.sort());
++-    // console.log("---");
++-    // listMember(subList.reverse());
++-
++-    // var numberList = [40, 100, 1, 5, 25, 10];
++-    // console.log(numberList);
++-    // console.log(numberList.sort());
++-    // console.log(numberList.sort((a, b) => {
++-    //     return b - a;
++-    // }));
++-    // console.log(numberList.sort((a, b) => {
++-    //     return a - b;
++-    // }));
++ }
++ 
++ function registerMember(list, item) {
++@@ -125,74 +128,5 @@ function detailRead(arrayList, index) {
++     return value;
++ }
++ 
++-class RxJS {
++-    constructor() {
++-        // this.forkjoin();
++-        this.oflist();
++-        var fnobj = this.fnObj();
++-        fnobj.subscribe(x => console.log(x));
++-
++-        var list = [1,2,3,4];
++-        this.removeList(list, 1);
++-        var newlist = this.addList(list, 5);
++-        console.log(list);
++-        newlist.subscribe(x => console.log(x));
++-
++-        this.editList(list,2,22);
++-        console.log(list);
++-
++-    }
++-    forkjoin() {
++-        var source = Rx.Observable.forkJoin(
++-            Rx.Observable.of(42),
++-            Rx.Observable.range(0, 10),
++-            Rx.Observable.from([1,2,3]),
++-            RSVP.Promise.resolve(56)
++-        );
++-
++-        var subscription = source.subscribe(
++-            x => { console.log('Next: ' + x); },
++-            err => { console.log('Error: ' + err); },
++-            () => { console.log('Completed'); });
++-    }
++-    fnObj () {
++-        return Rx.Observable.of('fnObj, hello');
++-    }
++-
++-    addList (list, item) {
++-        list = list.concat(item);
++-        // list.push(item);
++-        return Rx.Observable.of(list);
++-    }
++-
++-    removeList(list, idx) {
++-        list.splice(idx, 1);
++-        return list;
++-    }
++-
++-    editList (list, idx, item)  {
++-        list[idx] = item;
++-    }
++-
++-    oflist () {
++-        //Rx.Observable.of('hello rxjs').subscribe(x => { console.log(x); });
++-        var list = [];
++-        list.push({
++-            name: "k",
++-            phone: "1234",
++-            idx: 1234
++-        });
++-        Rx.Observable.of(list)
++-            .filter(x => x[0].idx > 1142)
++-            .map(x => x[0].name + "01")
++-            .subscribe(x => { console.log(x); });
++-        //Rx.Observable.of(1,2,3,4).subscribe(x =>{ console.log(x); });
++-    }
++-}
++-
++-var rxjs = new RxJS();
++-
++-
++-
++ 
++ 
++-- 
++2.11.0.windows.1
++
 -- 
 2.11.0.windows.1
 
