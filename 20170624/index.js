@@ -1,3 +1,5 @@
+'use strict';
+
 var Rx = require('../node_modules/rxjs');
 var w3schools = "https://www.w3schools.com/js/js_array_methods.asp";
 module.exports = () => {
